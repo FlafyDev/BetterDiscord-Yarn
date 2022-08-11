@@ -10,7 +10,7 @@ module.exports = (env, argv) => ({
   entry: "./src/index.js",
   output: {
     filename: "injector.js",
-    path: path.resolve(__dirname, "..", "dist")
+    path: path.resolve(__dirname, "../..", "dist"),
   },
   externals: {
     electron: `require("electron")`,
@@ -21,13 +21,13 @@ module.exports = (env, argv) => ({
     rimraf: `require("rimraf")`,
     yauzl: `require("yauzl")`,
     mkdirp: `require("mkdirp")`,
-    module: `require("module")`
+    module: `require("module")`,
   },
   resolve: {
     extensions: [".js"],
     alias: {
-      common: path.resolve(__dirname, "..", "common")
-    }
+      common: path.resolve(__dirname, "../..", "common"),
+    },
   },
   plugins: [
     new CircularDependencyPlugin({
@@ -38,19 +38,19 @@ module.exports = (env, argv) => ({
       patterns: [
         {
           from: path.resolve(__dirname, "src", "preload.js"),
-          to: path.resolve(__dirname, "..", "dist", "preload.js")
+          to: path.resolve(__dirname, "../..", "dist", "preload.js"),
         },
       ],
-    })
+    }),
   ],
   optimization: {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          compress: {drop_debugger: false},
-          keep_classnames: true
-        }
-      })
-    ]
-  }
+          compress: { drop_debugger: false },
+          keep_classnames: true,
+        },
+      }),
+    ],
+  },
 });
