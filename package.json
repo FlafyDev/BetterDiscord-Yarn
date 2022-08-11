@@ -7,6 +7,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "yarn run build-injector && yarn run build-renderer",
     "build-prod": "yarn workspace injector build-prod && yarn workspace renderer build-prod",
