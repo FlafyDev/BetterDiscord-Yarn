@@ -4,6 +4,9 @@
     "description": "Enhances Discord by adding functionality and themes.",
     "main": "src/index.js",
     "private": true,
+    "files": [
+      "dist"
+    ],
     "workspaces": [
       "renderer",
       "injector"
