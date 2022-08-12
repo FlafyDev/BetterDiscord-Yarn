@@ -1,5 +1,5 @@
 {
-    "name": "betterdiscord-injector",
+    "name": "injector",
     "version": "0.6.2",
     "description": "BetterDiscord injector module",
     "main": "src/index.js",

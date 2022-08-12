@@ -1,8 +1,9 @@
 {
-    "name": "betterdiscord-renderer",
+    "name": "renderer",
     "description": "Renderer portion of the BetterDiscord application.",
     "private": true,
     "main": "src/index.js",
+    "version": "0.0.0",
     "scripts": {
         "build": "webpack --progress --color",
         "watch": "webpack --progress --color --watch",
@@ -11,16 +12,16 @@
         "build-css": "postcss src/styles/index.css -o dist/style.css",
         "watch-css": "postcss src/styles/index.css -o dist/style.css -w",
         "lint-css": "stylelint src/styles/*.css && stylelint src/styles/**/*.css",
-        "lint": "npm run lint-js && npm run lint-css",
-        "lint-prod": "npm run lint-js -- --quiet && npm run lint-css -- --quiet",
-        "test-prod": "npm run test -- --reporter min"
+        "lint": "yarn run lint-js && yarn run lint-css",
+        "lint-prod": "yarn run lint-js -- --quiet && yarn run lint-css -- --quiet",
+        "test-prod": "yarn run test -- --reporter min"
     },
     "devDependencies": {
         "@babel/core": "^7.16.12",
         "@babel/preset-env": "^7.16.11",
         "@babel/preset-react": "^7.16.7",
         "@babel/register": "^7.16.9",
-        "babel-loader": "^8.2.3",
+        "babel-loader": "^8.2.5",
         "babel-plugin-module-resolver": "^4.1.0",
         "circular-dependency-plugin": "^5.2.2",
         "css-loader": "^6.5.1",

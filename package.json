@@ -3,17 +3,19 @@
     "version": "1.6.2",
     "description": "Enhances Discord by adding functionality and themes.",
     "main": "src/index.js",
+    "private": true,
+    "workspaces": [
+      "renderer",
+      "injector"
+    ],
     "scripts": {
-        "install": "cd injector && npm install && cd ../renderer && npm install",
-        "build": "npm run build-injector && npm run build-renderer",
-        "build-prod": "npm run build-prod --prefix injector && npm run build-prod --prefix renderer",
-        "build-injector": "npm run build --prefix injector",
-        "build-renderer": "npm run build --prefix renderer",
+	"build": "yarn workspace injector build && yarn workspace renderer build",
+        "build-prod": "yarn workspace injector build-prod && yarn workspace renderer build-prod",
         "pack-emotes": "node scripts/emotes.js",
         "inject": "node scripts/inject.js",
-        "lint": "eslint --ext .js common/ && npm run lint --prefix injector && npm run lint --prefix renderer",
+        "lint": "eslint --ext .js common/ && yarn run lint --prefix injector && yarn run lint --prefix renderer",
         "test": "mocha --require @babel/register --recursive \"./tests/renderer/*.js\"",
-        "dist": "npm run build-prod && node scripts/pack.js",
+        "dist": "yarn run build-prod && node scripts/pack.js",
         "api": "jsdoc -X renderer/src/modules/pluginapi.js > jsdoc-ast.json"
     },
     "devDependencies": {
